@@ -29,6 +29,15 @@ func renderHTMLPage(title string, body []g.Node) ([]byte, error) {
 			Link(g.Attr("rel", "preconnect"), g.Attr("href", "https://fonts.gstatic.com"), g.Attr("crossorigin")),
 			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap")),
 			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://manuelmazzuola.dev/assets/css/ghpages.css"), g.Attr("type", "text/css")),
+			Script(g.Attr("async"), g.Attr("src", "https://www.googletagmanager.com/gtag/js?id=G-DSQ9GW8FTJ")),
+			g.Raw(`<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'G-DSQ9GW8FTJ');
+			</script>`,
+			),
 		},
 		Body: []g.Node{Div(g.Attr("class", "container"), g.Group(body))},
 	}).Render(b)
