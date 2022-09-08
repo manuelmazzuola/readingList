@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/codemicro/readingList/transport"
 	"github.com/jszwec/csvutil"
+	"github.com/manuelmazzuola/readingList/transport"
 )
 
 func AddRowToCSV() error {
