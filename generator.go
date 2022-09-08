@@ -16,7 +16,7 @@ import (
 	. "github.com/maragudk/gomponents/html"
 )
 
-const dateFormat = "2006-01-02"
+const dateFormat = "02-01-2006"
 
 // renderHTMLPage renders a complete HTML page
 func renderHTMLPage(title string, body []g.Node) ([]byte, error) {
@@ -24,8 +24,13 @@ func renderHTMLPage(title string, body []g.Node) ([]byte, error) {
 	err := c.HTML5(c.HTML5Props{
 		Title:    title,
 		Language: "en-GB",
-		Head:     []g.Node{Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://www.tdpain.net/assets/css/ghpages.css"), g.Attr("type", "text/css"))},
-		Body:     []g.Node{Div(g.Attr("class", "container"), g.Group(body))},
+		Head: []g.Node{
+			Link(g.Attr("rel", "preconnect"), g.Attr("href", "https://fonts.googleapis.com")),
+			Link(g.Attr("rel", "preconnect"), g.Attr("href", "https://fonts.gstatic.com"), g.Attr("crossorigin")),
+			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap")),
+			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "http://manuelmazzuola.dev/assets/css/ghpages.css"), g.Attr("type", "text/css")),
+		},
+		Body: []g.Node{Div(g.Attr("class", "container"), g.Group(body))},
 	}).Render(b)
 	if err != nil {
 		return nil, err
