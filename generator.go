@@ -28,7 +28,7 @@ func renderHTMLPage(title string, body []g.Node) ([]byte, error) {
 			Link(g.Attr("rel", "preconnect"), g.Attr("href", "https://fonts.googleapis.com")),
 			Link(g.Attr("rel", "preconnect"), g.Attr("href", "https://fonts.gstatic.com"), g.Attr("crossorigin")),
 			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap")),
-			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "http://manuelmazzuola.dev/assets/css/ghpages.css"), g.Attr("type", "text/css")),
+			Link(g.Attr("rel", "stylesheet"), g.Attr("href", "https://manuelmazzuola.dev/assets/css/ghpages.css"), g.Attr("type", "text/css")),
 		},
 		Body: []g.Node{Div(g.Attr("class", "container"), g.Group(body))},
 	}).Render(b)
