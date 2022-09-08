@@ -193,10 +193,10 @@ func GenerateSite() error {
 		H1(g.Text(pageTitle)),
 		P(g.Raw(
 			fmt.Sprintf(
-				"A mostly complete list of articles I've read on the internet<br>There are currently %d entries in the list<br>Last modified %s<br>Repo: %s",
+				"A mostly complete list of articles I've read on the internet<br>There are currently %d entries in the list<br>Last modified %s<br>My blog: %s",
 				numArticles,
 				time.Now().Format(dateFormat),
-				"<a href=\"https://github.com/manuelmazzuola/readingList\" rel=\"noopener\"><code>manuelmazzuola/readingList</code></a>",
+				"<a href=\"https://manuelmazzuola.dev\" rel=\"noopener\"><code>manuelmazzuola.dev</code></a>",
 			),
 		)),
 	)
