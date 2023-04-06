@@ -189,7 +189,7 @@ func GenerateSiteMap() {
 
 	sm.Add(stm.URL{{"loc", "readingList"}})
 
-	sm.Finalize().PingSearchEngines()
+	sm.Finalize()
 }
 
 func GenerateSite() error {
