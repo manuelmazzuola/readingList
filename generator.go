@@ -14,6 +14,7 @@ import (
 	g "github.com/maragudk/gomponents"
 	c "github.com/maragudk/gomponents/components"
 	. "github.com/maragudk/gomponents/html"
+	"github.com/ikeikeikeike/go-sitemap-generator/v2/stm"
 )
 
 const dateFormat = "02-01-2006"
@@ -176,6 +177,21 @@ func articleLinkComponent(url, title, description, date, hnURL string) g.Node {
 	)
 }
 
+func GenerateSiteMap() {
+	sm := stm.NewSitemap(1)
+
+	sm.SetDefaultHost("https://manuelmazzuola.dev")
+	sm.SetSitemapsPath("/")
+	sm.SetPublicPath(".site")
+	sm.SetCompress(false)
+
+	sm.Create()
+
+	sm.Add(stm.URL{{"loc", "readingList"}})
+
+	sm.Finalize().PingSearchEngines()
+}
+
 func GenerateSite() error {
 
 	const outputDir = ".site"
@@ -219,5 +235,9 @@ func GenerateSite() error {
 
 	_ = os.Mkdir(outputDir, 0777)
 
-	return ioutil.WriteFile(outputDir+"/index.html", outputContent, 0644)
+	err = ioutil.WriteFile(outputDir+"/index.html", outputContent, 0644)
+
+	GenerateSiteMap()
+
+	return err
 }
