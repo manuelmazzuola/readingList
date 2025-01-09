@@ -32,7 +32,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4.0.0
-        env:
-          PUBLISH_DIR: .site
-          PUBLISH_BRANCH: gh-pages
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          publish_dir: .site
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
