@@ -1,6 +1,6 @@
 module github.com/manuelmazzuola/readingList
 
-go 1.18
+go 1.23
 
 require (
 	github.com/go-playground/validator v9.31.0+incompatible
